@@ -1,4 +1,6 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
+import { IoCart } from "react-icons/io5";
 
 export default function MainNavigation() {
   return (
@@ -6,7 +8,10 @@ export default function MainNavigation() {
       <section className=" top-txt ">
         <div className="head container ">
           <div className="head-txt ">
-            <p>Free shipping, 30-day return or refund guarantee.</p>
+            <p>
+              Livraison rapide avec possibilité de retour en 3 jours. Satisfait
+              ou remboursé .
+            </p>
           </div>
           <div className="sing_in_up ">
             <a href="# ">ME CONNECTER</a>
@@ -24,20 +29,40 @@ export default function MainNavigation() {
           </div>
           <ul className="menu-items">
             <li>
-              <a href="#home">Accueil</a>
+              <NavLink to="/">Accueil</NavLink>
             </li>
             <li>
-              <a href="#sellers">Nouveautés</a>
+              <NavLink to="/products">Nos Produits</NavLink>
             </li>
-            <li>
-              <a href="#news">Ma zone</a>
-            </li>
-            <li>
-              <a href="#contact">Contact</a>
+            <li className="flex items-center cursor-pointer">
+              <IoCart />
+              <span>Panier</span>
             </li>
           </ul>
           <div className="logo">
             {/* <img src="https://i.postimg.cc/TP6JjSTt/logo.webp" alt="" /> */}
+          </div>
+          <div className="flex items-center gap-1">
+            <input
+              placeholder="rechercher"
+              style={{
+                padding: "0.5rem",
+                border: "1px solid #f2f2f2",
+                borderRadius: "5px",
+              }}
+            />
+
+            <button
+              style={{
+                backgroundColor: "var(--primary-color)",
+                padding: "0.5rem",
+                border: "none",
+                borderRadius: "5px",
+                color: "white",
+              }}
+            >
+              Rechercher
+            </button>
           </div>
         </div>
       </nav>

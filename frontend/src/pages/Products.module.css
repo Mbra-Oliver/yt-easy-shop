@@ -1,0 +1,31 @@
+.container_flex {
+  width: 100%;
+  display: flex;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.w_30 {
+  width: 30%;
+}
+
+.w_70 {
+  width: 70%;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.total_result_preview {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f2f2f2;
+  margin-bottom: 1rem;
+  padding: 1rem;
+}
+
+.productListMode {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-gap: 1rem;
+}

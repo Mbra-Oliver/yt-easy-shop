@@ -11,6 +11,8 @@ export default function NewArrivals() {
           <ProductListItem />
           <ProductListItem />
           <ProductListItem />
+          <ProductListItem />
+          <ProductListItem />
         </div>
       </div>
     </>

@@ -1,0 +1,48 @@
+.list_container {
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+  padding-bottom: 1rem;
+  border-bottom: 1px solid #f2f2f2;
+}
+
+.list_container img {
+  height: 150px;
+  object-fit: contain;
+}
+
+.products_text {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.titleProduct {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.right_width {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding-right: 1rem;
+}
+
+.list_btn_ui button {
+  background: var(--primary-color);
+  padding: 0.5rem;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.descriptionLimit {
+  width: 300px;
+}

@@ -1,0 +1,18 @@
+.header {
+  background-color: var(--primary-color);
+  padding: 1rem;
+  color: white;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+
+.latest {
+  border: 1px solid #f2f2f2;
+}
+
+.latestCategories {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.3rem;
+  padding: 0.4rem;
+}
