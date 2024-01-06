@@ -14,7 +14,6 @@ export default function ProductsPage() {
     <>
       <div className={classes.container_flex}>
         <div className={classes.w_30}>
-          {displayMode}
           <ProductFilter />
         </div>
         <div className={classes.w_70}>

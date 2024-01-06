@@ -1,8 +1,10 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Form, NavLink, useLoaderData } from "react-router-dom";
 import { IoCart } from "react-icons/io5";
 
 export default function MainNavigation() {
+  const token = useLoaderData();
+
   return (
     <>
       <section className=" top-txt ">
@@ -13,10 +15,12 @@ export default function MainNavigation() {
               ou remboursé .
             </p>
           </div>
-          <div className="sing_in_up ">
-            <a href="# ">ME CONNECTER</a>
-            <a href="# ">M'INSCRIRE</a>
-          </div>
+          {!token && (
+            <div className="sing_in_up">
+              <NavLink to="/login">ME CONNECTER</NavLink>
+              <NavLink to="/register">M'INSCRIRE</NavLink>
+            </div>
+          )}
         </div>
       </section>
       <nav className="navbar">
@@ -34,6 +38,18 @@ export default function MainNavigation() {
             <li>
               <NavLink to="/products">Nos Produits</NavLink>
             </li>
+            {token && (
+              <>
+                <li>
+                  <NavLink to="/products">Mon Profile</NavLink>
+                </li>
+                <li>
+                  <Form action="/logout" method="post">
+                    <button className="logout_btn_ui"> Me déconnecter</button>
+                  </Form>
+                </li>
+              </>
+            )}
             <li className="flex items-center cursor-pointer">
               <IoCart />
               <span>Panier</span>

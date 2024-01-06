@@ -5,8 +5,8 @@ export default function ProductFilter() {
     <div className={classes.container}>
       <div className={classes.item}>
         <div className={classes.padding}>
-          <h3>Catégories</h3> <br />
-          <span>Filtrer par catégorie</span>
+          <h3 className="border-b pb-1 mb-1">Catégories</h3>
+          <p className="">Aucune catégorie enregistrer.</p>
         </div>
       </div>
     </div>
