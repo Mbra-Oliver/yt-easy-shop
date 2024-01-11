@@ -11,7 +11,7 @@ import {
 } from "../../assets/validations/validator";
 import { notificationErrorAlert } from "../../helpers/alert";
 import { toast } from "react-toastify";
-import { useNavigate } from "react-router-dom";
+import { redirect, useNavigate } from "react-router-dom";
 export default function Login() {
   const [isLoading, setIsLoading] = useState(false);
   const [resultError, setResultError] = useState(false);
@@ -57,7 +57,7 @@ export default function Login() {
         setIsLoading(false);
         setResultError(false);
         localStorage.setItem("easy_shop_user_token", result.token);
-        navigate("/");
+        redirect("/");
       } else {
         toast.error(result.message);
         setIsLoading(false);

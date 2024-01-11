@@ -55,7 +55,7 @@ export default function Register() {
       !emailIsValid(emailValue) ||
       !isPasswordValid(passwordValue)
     ) {
-      throw new Error("Veuillez remplir le formulaire");
+      throw new Error("Formulaire invalide.");
     }
   };
   const handleRegister = async () => {
@@ -69,6 +69,7 @@ export default function Register() {
     };
 
     try {
+      validateForm();
       const result = await toast.promise(apiRegisterMethod(dataSend), {
         pending: "Création du compte en cours...",
       });
@@ -86,7 +87,10 @@ export default function Register() {
       }
     } catch (error) {
       setIsLoading(false);
+      setResultError(true);
+
       if (error.message) {
+        setErrorText(error.message);
         toast.error(error.message);
       }
     }

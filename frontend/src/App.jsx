@@ -6,7 +6,7 @@ import ProductsPage from "./pages/Products";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import "react-toastify/dist/ReactToastify.css";
-import { toast, ToastContainer } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import { checkUserAuthLoader, tokenLoader } from "./helpers/authManage";
 import { logoutAction } from "./pages/auth/Logout";
 //Initialisation des routes

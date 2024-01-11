@@ -59,26 +59,9 @@ export default function MainNavigation() {
             {/* <img src="https://i.postimg.cc/TP6JjSTt/logo.webp" alt="" /> */}
           </div>
           <div className="flex items-center gap-1">
-            <input
-              placeholder="rechercher"
-              style={{
-                padding: "0.5rem",
-                border: "1px solid #f2f2f2",
-                borderRadius: "5px",
-              }}
-            />
+            <input placeholder="rechercher" className="search-topbar-input" />
 
-            <button
-              style={{
-                backgroundColor: "var(--primary-color)",
-                padding: "0.5rem",
-                border: "none",
-                borderRadius: "5px",
-                color: "white",
-              }}
-            >
-              Rechercher
-            </button>
+            <button className="btn-search">Rechercher</button>
           </div>
         </div>
       </nav>
