@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom";
+
 const MainNavigation = () => {
   return (
     <>
@@ -12,8 +14,8 @@ const MainNavigation = () => {
           </div>
 
           <div className="sing_in_up">
-            <a href="/">ME CONNECTER</a>
-            <a href="/">M'INSCRIRE</a>
+            <NavLink to="/login">ME CONNECTER</NavLink>
+            <NavLink to="/register">M'INSCRIRE</NavLink>
           </div>
         </div>
       </section>
@@ -32,10 +34,10 @@ const MainNavigation = () => {
 
           <ul className="menu-items">
             <li>
-              <a href="/">Accueil</a>
+              <NavLink to="/">Accueil</NavLink>
             </li>
             <li>
-              <a href="/">Nos produits</a>
+              <NavLink to="/products">Nos produits</NavLink>
             </li>
             <li>
               <a href="/">Mon profile</a>
