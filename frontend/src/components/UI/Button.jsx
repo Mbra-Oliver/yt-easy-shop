@@ -1,6 +1,12 @@
 const Button = ({ children, ...props }) => {
+  const disabled = props.disabled;
   return (
-    <button className={`${props.custom_class} defaultPrimaryBtn`}>
+    <button
+      {...props}
+      className={`${props.custom_class} ${
+        disabled && "disabled-button"
+      }  defaultPrimaryBtn`}
+    >
       {children}
     </button>
   );
