@@ -4,8 +4,7 @@ const mongoose = require("mongoose");
 const authRoutes = require("./routes/authRoutes");
 const cors = require("cors");
 
-const MONGODBURI =
-  "mongodb+srv://oliver:gwfhTHdoH6VcuGX6@cluster0.kiokfqu.mongodb.net/easy_shop";
+const MONGODBURI = null;
 const app = express();
 
 app.use(bodyParser());
