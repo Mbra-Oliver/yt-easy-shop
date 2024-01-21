@@ -8,6 +8,7 @@ import {
   isNotEmpty,
   isPasswordValid,
 } from "../../utils/validators";
+import { toast } from "react-toastify";
 
 export default function Login() {
   const {
@@ -23,6 +24,20 @@ export default function Login() {
     handleInputBlur: handlePasswordBlur,
     hasError: passwordHasError,
   } = useInput("", (value) => isPasswordValid(value));
+
+  const handleLogin = () => {
+    if (!emailIsValid(emailValue) || !isPasswordValid(passwordValue)) {
+      toast.warning("Formulaire invalide");
+      return;
+    }
+
+    const dataToSend = {
+      email: emailValue,
+      password: passwordValue,
+    };
+
+    console.log(dataToSend);
+  };
 
   return (
     <div className={classes.centerContent}>
@@ -60,6 +75,7 @@ export default function Login() {
         <Button
           custom_class="w-100 cursor-pointer p-0"
           disabled={passwordHasError || emailHasError}
+          onClick={handleLogin}
         >
           Me connecter
         </Button>
