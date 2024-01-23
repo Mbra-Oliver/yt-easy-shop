@@ -83,4 +83,3 @@ export default function Login() {
     </div>
   );
 }
-// https://github.com/Mbra-Oliver/yt-easy-shop/blob/main/frontend/src/pages/auth/auth.module.css
