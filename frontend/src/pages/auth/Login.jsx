@@ -16,6 +16,7 @@ export default function Login() {
     handleInputChange: handleEmailChange,
     handleInputBlur: handleEmailBlur,
     hasError: emailHasError,
+    didEdit: emailFieldIsEdited,
   } = useInput("", (value) => isNotEmpty(value) && emailIsValid(value));
 
   const {
@@ -23,14 +24,10 @@ export default function Login() {
     handleInputChange: handlePasswordChange,
     handleInputBlur: handlePasswordBlur,
     hasError: passwordHasError,
+    didEdit: passwordFieldIsEdited,
   } = useInput("", (value) => isPasswordValid(value));
 
   const handleLogin = () => {
-    if (!emailIsValid(emailValue) || !isPasswordValid(passwordValue)) {
-      toast.warning("Formulaire invalide");
-      return;
-    }
-
     const dataToSend = {
       email: emailValue,
       password: passwordValue,
@@ -56,6 +53,7 @@ export default function Login() {
             type="email"
             placeholder="Entrer votre email"
             className="inputDefault p-0"
+            isEdited={emailFieldIsEdited}
           />
         </div>
 
@@ -69,6 +67,7 @@ export default function Login() {
             type="password"
             placeholder="******"
             className="inputDefault p-0"
+            isEdited={passwordFieldIsEdited}
           />
         </div>
 

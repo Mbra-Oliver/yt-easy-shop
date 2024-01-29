@@ -1,8 +1,8 @@
-const Input = ({ error, ...props }) => {
+const Input = ({ isEdited, error, ...props }) => {
   return (
     <>
       <input {...props} />
-      {error && (
+      {error && isEdited && (
         <p className="control-error-text">La valeur saisie est incorrecte.</p>
       )}
     </>

@@ -15,10 +15,14 @@ export function useInput(defaultValue, validationFunction) {
     setDidEdit(true);
   }
 
+  const fieldHaveError =
+    (!didEdit && !valueIsValid) || (didEdit && !valueIsValid);
+
   return {
     value: enteredValue,
     handleInputChange,
     handleInputBlur,
-    hasError: didEdit && !valueIsValid,
+    hasError: fieldHaveError,
+    didEdit,
   };
 }

@@ -6,6 +6,10 @@
   transform: translate(-50%, -50%);
 }
 
+.marginTop {
+  margin-top: 7rem;
+}
+
 .formTitle {
   text-align: center;
   font-size: 22px;
