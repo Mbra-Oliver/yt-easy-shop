@@ -3,7 +3,9 @@ const Input = ({ isEdited, error, ...props }) => {
     <>
       <input {...props} />
       {error && isEdited && (
-        <p className="control-error-text">La valeur saisie est incorrecte.</p>
+        <span className="control-error-text">
+          La valeur saisie est incorrecte.
+        </span>
       )}
     </>
   );

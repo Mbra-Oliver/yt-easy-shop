@@ -1372,7 +1372,7 @@ iframe {
 }
 .control-error-text {
   color: var(--danger-color) !important;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .logout_btn_ui {
