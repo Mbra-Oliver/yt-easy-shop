@@ -263,7 +263,7 @@ main {
 }
 
 .home_txt p {
-  color: var(--primary-color);
+  color: white !important;
   font-weight: 600;
   padding-bottom: 20px;
   letter-spacing: 1.5px;
@@ -279,9 +279,10 @@ main {
 }
 
 .home_txt .home_label p {
-  color: grey;
+  color: white;
   font-size: 14px;
   padding-top: 10px;
+  font-weight: normal !important;
 }
 
 .home_txt a {
