@@ -3,7 +3,8 @@ import "./App.css";
 
 import Home from "./pages/Home";
 import RootLayout from "./components/Layouts/RootLayout";
-import Products from "./pages/Products";
+import Products from "./pages/products/Products";
+import ProductDetails from "./pages/products/ProductDetails";
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import { ToastContainer } from "react-toastify";
@@ -22,7 +23,17 @@ const router = createBrowserRouter([
       },
       {
         path: "/products",
-        element: <Products />,
+        children: [
+          {
+            index: true,
+            element: <Products />,
+          },
+
+          {
+            path: ":id",
+            element: <ProductDetails />,
+          },
+        ],
       },
 
       {
