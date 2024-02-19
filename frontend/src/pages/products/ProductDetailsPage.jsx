@@ -1,6 +1,6 @@
 import classes from "./productDetails.module.css";
 
-const ProductDetails = () => {
+const ProductDetailsPage = () => {
   return (
     <>
       <div className={`${classes.detailsContainer} ${classes.mt1}`}>
@@ -55,4 +55,4 @@ const ProductDetails = () => {
   );
 };
 
-export default ProductDetails;
+export default ProductDetailsPage;

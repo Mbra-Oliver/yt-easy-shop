@@ -1,10 +1,11 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
 import RootLayout from "./components/Layouts/RootLayout";
-import Products from "./pages/products/Products";
-import ProductDetails from "./pages/products/ProductDetails";
+import ProductsPage from "./pages/products/ProductsPage";
+import ProductDetailsPage from "./pages/products/ProductDetailsPage";
+
 import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import { ToastContainer } from "react-toastify";
@@ -19,19 +20,19 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Home />,
+        element: <HomePage />,
       },
       {
         path: "/products",
         children: [
           {
             index: true,
-            element: <Products />,
+            element: <ProductsPage />,
           },
 
           {
             path: ":id",
-            element: <ProductDetails />,
+            element: <ProductDetailsPage />,
           },
         ],
       },
