@@ -1,6 +1,11 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLoaderData } from "react-router-dom";
+import { IoLogOutOutline } from "react-icons/io5";
 
 const MainNavigation = () => {
+  const token = useLoaderData();
+
+  console.log(token);
+
   return (
     <>
       {/*Top Top header */}
@@ -13,10 +18,23 @@ const MainNavigation = () => {
             </p>
           </div>
 
-          <div className="sing_in_up">
-            <NavLink to="/login">ME CONNECTER</NavLink>
-            <NavLink to="/register">M'INSCRIRE</NavLink>
-          </div>
+          {!token && (
+            <div className="sing_in_up">
+              <NavLink to="/login">ME CONNECTER</NavLink>
+              <NavLink to="/register">M'INSCRIRE</NavLink>
+            </div>
+          )}
+          {token && (
+            <div className="sing_in_up">
+              <NavLink
+                to="/login"
+                style={{ display: "flex", alignItems: "center", gap: ".5rem" }}
+              >
+                <IoLogOutOutline style={{ fontSize: "25px" }} />
+                <span> ME DECONNECTER</span>
+              </NavLink>
+            </div>
+          )}
         </div>
       </section>
 

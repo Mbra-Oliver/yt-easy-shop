@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import classes from "./auth.module.css";
 import Input from "./../../components/UI/Input";
 import Button from "./../../components/UI/Button";
@@ -9,6 +9,8 @@ import {
   isPasswordValid,
 } from "../../utils/validators";
 import { toast } from "react-toastify";
+import { apiLoginMethod } from "../../http-request/auth-request";
+import { redirect, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const {
@@ -27,13 +29,37 @@ export default function Login() {
     didEdit: passwordFieldIsEdited,
   } = useInput("", (value) => isPasswordValid(value));
 
-  const handleLogin = () => {
-    const dataToSend = {
-      email: emailValue,
-      password: passwordValue,
-    };
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-    console.log(dataToSend);
+  const navigate = useNavigate();
+  const handleLogin = async () => {
+    try {
+      setIsSubmitting(true);
+
+      const dataToSend = {
+        email: emailValue,
+        password: passwordValue,
+      };
+
+      const result = await toast.promise(apiLoginMethod(dataToSend), {
+        pending: "Connexion à votre compte en cours...",
+      });
+
+      if (result.statusCode === 200) {
+        toast.success(result.message);
+        localStorage.setItem("TOKEN_YT_EASY_SHOP", result.token);
+
+        return redirect("/");
+      }
+
+      if (result.statusCode === 401) {
+        toast.error(result.message);
+        setIsSubmitting(false);
+      }
+    } catch (error) {
+      toast.error(error.message);
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -73,10 +99,10 @@ export default function Login() {
 
         <Button
           custom_class="w-100 cursor-pointer p-0"
-          disabled={passwordHasError || emailHasError}
+          disabled={passwordHasError || emailHasError || isSubmitting}
           onClick={handleLogin}
         >
-          Me connecter
+          {isSubmitting ? "Connexion en cours..." : "Me connecter"}
         </Button>
       </div>
     </div>

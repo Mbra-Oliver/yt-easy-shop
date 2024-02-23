@@ -8,6 +8,9 @@ import {
   isPasswordValid,
 } from "../../utils/validators";
 import classes from "./auth.module.css";
+import { apiRegisterMethod } from "../../http-request/auth-request";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
   const {
@@ -49,7 +52,13 @@ const Register = () => {
     didEdit: confirmPasswordFieldIsEdited,
   } = useInput("", (value) => isPasswordValid(value));
 
-  const handleSubmit = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const navigate = useNavigate();
+
+  //Méthode pour soumettre le formulaire
+
+  const handleSubmit = async () => {
+    setIsSubmitting(true);
     const dataToSend = {
       lastname: lastnameValue,
       firstname: firstnameValue,
@@ -60,10 +69,23 @@ const Register = () => {
 
     if (passwordValue !== confirmPasswordValue) {
       toast.error("Les mots de passe ne correspondent pas.");
+      setIsSubmitting(false);
       return;
     }
 
-    console.log(dataToSend);
+    const result = await toast.promise(apiRegisterMethod(dataToSend), {
+      pending: "Création de compte en cours.... Patienter",
+    });
+
+    setIsSubmitting(false);
+    if (result.statusCode === 201) {
+      toast.success(result.message);
+      navigate("/login");
+    }
+
+    if (result.statusCode === 422) {
+      toast.error(result.message);
+    }
   };
 
   return (
@@ -136,11 +158,12 @@ const Register = () => {
             emailHasError ||
             confirmPasswordHasError ||
             firstnameHasError ||
-            lastnameHasError
+            lastnameHasError ||
+            isSubmitting
           }
           onClick={handleSubmit}
         >
-          Créer mon compte
+          {isSubmitting ? "Opération en cours" : "Créer mon compte"}
         </Button>
       </div>
     </div>

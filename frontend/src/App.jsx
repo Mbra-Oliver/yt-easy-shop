@@ -10,6 +10,7 @@ import Login from "./pages/auth/Login";
 import Register from "./pages/auth/Register";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { checkUserAuthLoader, tokenLoader } from "./loaders/auth-loader";
 
 //Initialisation des routes
 
@@ -17,6 +18,7 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <RootLayout />,
+    loader: tokenLoader,
     children: [
       {
         index: true,
@@ -40,10 +42,12 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login />,
+        loader: checkUserAuthLoader,
       },
       {
         path: "/register",
         element: <Register />,
+        loader: checkUserAuthLoader,
       },
     ],
   },
