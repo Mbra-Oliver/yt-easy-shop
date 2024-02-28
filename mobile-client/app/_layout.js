@@ -1,18 +1,24 @@
 import { Stack } from "expo-router";
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, KeyboardAvoidingView, StyleSheet } from "react-native";
 
 const RootLayout = () => {
   return (
-    <Stack>
-      <Stack.Screen
-        name="(tabs)"
-        options={{
-          headerShown: false,
-        }}
-      />
-      {/* <Stack.Screen name="/categories/[id]" /> */}
-    </Stack>
+    <KeyboardAvoidingView
+      behavior="height"
+      style={{ flex: 1 }}
+      keyboardVerticalOffset="-50" // Ajustez la valeur selon vos besoins
+    >
+      <Stack>
+        <Stack.Screen
+          name="(tabs)"
+          options={{
+            headerShown: false,
+          }}
+        />
+        {/* <Stack.Screen name="/categories/[id]" /> */}
+      </Stack>
+    </KeyboardAvoidingView>
   );
 };
 

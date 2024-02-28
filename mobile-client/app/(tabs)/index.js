@@ -1,13 +1,21 @@
 import { Link, router } from "expo-router";
 import React from "react";
-import { View, Text, StyleSheet, Pressable, TextInput } from "react-native";
+import {
+  View,
+  Text,
+  StyleSheet,
+  Pressable,
+  TextInput,
+  KeyboardAvoidingView,
+  Platform,
+} from "react-native";
 import { COLORS } from "../../constantes/colors";
 import ProductsList from "../../components/ProductsList";
 
 const Index = () => {
   return (
     <View style={styles.root}>
-      <View>
+      <View style={styles.inputContainer}>
         <TextInput placeholder="Rechercher un produit" style={styles.input} />
       </View>
       <ProductsList />
@@ -17,7 +25,10 @@ const Index = () => {
 
 const styles = StyleSheet.create({
   root: {
-    padding: 10,
+    padding: 15,
+  },
+  inputContainer: {
+    paddingBottom: 10,
   },
   input: {
     backgroundColor: COLORS.tagBackground,

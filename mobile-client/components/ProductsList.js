@@ -40,6 +40,34 @@ const DUMMY_PRODUCTS = [
     title: "Wine - Fontanafredda Barolo",
     description: "() { _; } >_[$($())] { touch /tmp/blns.shellshock2.fail; }",
   },
+  {
+    id: 7,
+    image: "http://dummyimage.com/111x100.png/5fa2dd/ffffff",
+    price: 59,
+    title: "Wine - Fontanafredda Barolo",
+    description: "() { _; } >_[$($())] { touch /tmp/blns.shellshock2.fail; }",
+  },
+  {
+    id: 8,
+    image: "http://dummyimage.com/111x100.png/5fa2dd/ffffff",
+    price: 59,
+    title: "Wine - Fontanafredda Barolo",
+    description: "() { _; } >_[$($())] { touch /tmp/blns.shellshock2.fail; }",
+  },
+  {
+    id: 5,
+    image: "http://dummyimage.com/111x100.png/5fa2dd/ffffff",
+    price: 59,
+    title: "Wine - Fontanafredda Barolo",
+    description: "() { _; } >_[$($())] { touch /tmp/blns.shellshock2.fail; }",
+  },
+  {
+    id: 6,
+    image: "http://dummyimage.com/111x100.png/5fa2dd/ffffff",
+    price: 59,
+    title: "Wine - Fontanafredda Barolo",
+    description: "() { _; } >_[$($())] { touch /tmp/blns.shellshock2.fail; }",
+  },
 ];
 
 CATEGORIES = [
@@ -50,28 +78,28 @@ CATEGORIES = [
   },
   {
     id: 2,
-    title: "Chaussure",
+    title: "Smartphone",
     active: false,
   },
   {
     id: 3,
-    title: "Chaussure",
+    title: "Appareils",
     active: false,
   },
   {
     id: 4,
-    title: "Chaussure",
+    title: "Gaming",
     active: false,
   },
 
   {
     id: 5,
-    title: "Chaussure",
+    title: "Vêtements",
     active: false,
   },
   {
     id: 6,
-    title: "Chaussure",
+    title: "Electroménager",
     active: false,
   },
 ];
@@ -99,7 +127,7 @@ const ProductsList = () => {
                     styles.productCategory,
                     item.active && styles.activeCat,
                   ]}
-                  onPress={() => navigate.push("/categories/1")}
+                  onPress={() => navigate.push(`/categories/${item.id}`)}
                 >
                   <Text
                     style={[
@@ -130,8 +158,8 @@ const ProductsList = () => {
         renderItem={(item) => {
           return <ProductItem item={item} />;
         }}
+        showsVerticalScrollIndicator={false}
         numColumns={2}
-        showsHorizontalScrollIndicator={false}
         contentContainerStyle={{
           gap: 5,
           paddingBottom: 70,
