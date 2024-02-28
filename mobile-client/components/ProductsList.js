@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import ProductItem from "./ProductItem";
 import { COLORS } from "../constantes/colors";
+import { useRouter } from "expo-router";
 
 const DUMMY_PRODUCTS = [
   {
@@ -76,6 +77,8 @@ CATEGORIES = [
 ];
 
 const ProductsList = () => {
+  const navigate = useRouter();
+
   return (
     <View>
       <FlatList
@@ -96,6 +99,7 @@ const ProductsList = () => {
                     styles.productCategory,
                     item.active && styles.activeCat,
                   ]}
+                  onPress={() => navigate.push("/categories/1")}
                 >
                   <Text
                     style={[

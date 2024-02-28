@@ -11,6 +11,7 @@ const RootLayout = () => {
           headerShown: false,
         }}
       />
+      {/* <Stack.Screen name="/categories/[id]" /> */}
     </Stack>
   );
 };

@@ -41,7 +41,7 @@ const TabsLayout = () => {
       ></Tabs.Screen>
 
       <Tabs.Screen
-        name="profile/index"
+        name="profile"
         options={{
           title: "Compte",
           tabBarIcon: ({ color, size }) => (
