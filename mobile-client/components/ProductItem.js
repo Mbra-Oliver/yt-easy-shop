@@ -1,39 +1,79 @@
-import { View, Text, StyleSheet, Image } from "react-native";
+import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import React from "react";
+import { COLORS } from "./../constantes/colors";
+import ProductButton from "./ProductButton";
 
-export default function ProductItem() {
+export default function ProductItem({ item }) {
   const imageUrl = "https://random.imagecdn.app/500/150";
 
   return (
-    <View style={styles.root}>
-      <View>
-        <Text>ProductItem</Text>
-        <Image source={{ uri: imageUrl }} style={styles.image} />
+    <Pressable style={styles.root}>
+      <View style={styles.productContainer}>
+        <Image style={styles.image} source={{ uri: imageUrl }} blurRadius={1} />
       </View>
-      <View style={styles.bottom}>
-        <Text>A Good Product</Text>
-        <Text>Add to cart</Text>
+
+      <View style={styles.productDetails}>
+        <View style={styles.titleContainer}>
+          <Text style={styles.titleText} numberOfLines={2} ellipsizeMode="tail">
+            {item.item.title}
+          </Text>
+        </View>
+
+        <View style={styles.priceContainer}>
+          <Text style={styles.price}>100.000 FCFA</Text>
+        </View>
       </View>
-    </View>
+
+      <View style={styles.buy}>
+        <ProductButton />
+      </View>
+    </Pressable>
   );
 }
+
 const styles = StyleSheet.create({
   root: {
+    flex: 1,
     padding: 15,
-    backgroundColor: "gray",
-    marginBottom: 10,
     borderRadius: 5,
-  },
-  image: {
-    width: 100,
-    height: 100,
-    resizeMode: "cover",
+    height: 250,
+    backgroundColor: COLORS.tagBackground,
+    position: "relative",
   },
 
-  bottom: {
-    marginTop: 3,
+  productContainer: {
+    overflow: "hidden",
+    borderRadius: 5,
+  },
+  titleContainer: {
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+  },
+  image: {
+    resizeMode: "cover",
+    height: 100,
+    width: "100%",
+    borderRadius: 5,
+  },
+  titleText: {
+    color: COLORS.grayText,
+  },
+
+  priceContainer: {},
+  price: {
+    fontWeight: "700",
+    fontSize: 16,
+  },
+  productDetails: {
+    marginTop: 5,
+    flexDirection: "column",
+    gap: 5,
+  },
+  buy: {
+    position: "absolute",
+    bottom: 10,
+    alignSelf: "center",
+    width: "80%",
   },
 });

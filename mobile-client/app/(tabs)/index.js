@@ -1,30 +1,29 @@
 import { Link, router } from "expo-router";
 import React from "react";
-import { View, Text, StyleSheet, Pressable } from "react-native";
+import { View, Text, StyleSheet, Pressable, TextInput } from "react-native";
+import { COLORS } from "../../constantes/colors";
+import ProductsList from "../../components/ProductsList";
 
 const Index = () => {
   return (
-    <View>
-      <Text>Hello</Text>
-      <Link href="/products">Products</Link>
-      {/* <Pressable onPress={() => router.push("/products/1")}>
-        <Text> Go Product 1</Text>
-      </Pressable>
-
-      <Pressable
-        onPress={() =>
-          router.push({
-            pathname: "products/[id]",
-            params: { id: 44 },
-          })
-        }
-      >
-        <Text> Go Product 2</Text>
-      </Pressable> */}
+    <View style={styles.root}>
+      <View>
+        <TextInput placeholder="Rechercher un produit" style={styles.input} />
+      </View>
+      <ProductsList />
     </View>
   );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  root: {
+    padding: 10,
+  },
+  input: {
+    backgroundColor: COLORS.tagBackground,
+    padding: 5,
+    borderRadius: 5,
+  },
+});
 
 export default Index;
