@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import { COLORS } from "../../constantes/colors";
+import { COLORS } from "../../../constantes/colors";
 import Ionicons from "@expo/vector-icons/Ionicons";
 import { AntDesign } from "@expo/vector-icons";
 import { Feather } from "@expo/vector-icons";

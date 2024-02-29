@@ -9,8 +9,8 @@ import {
   KeyboardAvoidingView,
   Platform,
 } from "react-native";
-import { COLORS } from "../../constantes/colors";
-import ProductsList from "../../components/ProductsList";
+import { COLORS } from "../../../constantes/colors";
+import ProductsList from "../../../components/ProductsList";
 
 const Index = () => {
   return (
@@ -18,7 +18,7 @@ const Index = () => {
       <View style={styles.inputContainer}>
         <TextInput placeholder="Rechercher un produit" style={styles.input} />
       </View>
-      <ProductsList />
+      <ProductsList displayCategorieTopBar={false} />
     </View>
   );
 };

@@ -8,7 +8,7 @@ import {
   ScrollView,
   ImageBackground,
 } from "react-native";
-import { COLORS } from "../../../constantes/colors";
+import { COLORS } from "../../../../constantes/colors";
 import { AntDesign } from "@expo/vector-icons";
 import { Stack } from "expo-router";
 const Index = () => {
@@ -22,7 +22,7 @@ const Index = () => {
 
       <ImageBackground
         style={[styles.topContainer, styles.backgroundImage]}
-        source={require("./../../../assets/products/milada-vigerova-p8Drpg_duLw-unsplash.jpg")}
+        source={require("./../../../../assets/products/milada-vigerova-p8Drpg_duLw-unsplash.jpg")}
       ></ImageBackground>
       <ScrollView style={styles.bottomContainer}>
         <View style={[styles.row, styles.itemsAround]}>

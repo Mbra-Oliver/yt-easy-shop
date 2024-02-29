@@ -1,8 +1,8 @@
 import { Stack, useLocalSearchParams } from "expo-router";
 import React from "react";
 import { View, Text, StyleSheet, TextInput } from "react-native";
-import { COLORS } from "../../../constantes/colors";
-import ProductsList from "../../../components/ProductsList";
+import { COLORS } from "../../../../constantes/colors";
+import ProductsList from "../../../../components/ProductsList";
 
 const Index = () => {
   const { id } = useLocalSearchParams();
