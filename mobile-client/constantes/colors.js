@@ -4,4 +4,6 @@ export const COLORS = {
   productBackground: "#f1f3f2",
   tagBackground: "#ffffff",
   dangerBackground: "#ef4d4d",
+  success: "#48d861",
+  white: "#ffffff",
 };

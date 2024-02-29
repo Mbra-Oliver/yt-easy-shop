@@ -7,7 +7,7 @@ const RootLayout = () => {
     <KeyboardAvoidingView
       behavior="height"
       style={{ flex: 1 }}
-      keyboardVerticalOffset="-50" // Ajustez la valeur selon vos besoins
+      keyboardVerticalOffset="-100"
     >
       <Stack>
         <Stack.Screen

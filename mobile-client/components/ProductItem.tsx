@@ -1,26 +1,33 @@
 import { View, Text, StyleSheet, Image, Pressable } from "react-native";
 import React from "react";
-import { COLORS } from "./../constantes/colors";
+import { COLORS } from "../constantes/colors";
 import ProductButton from "./ProductButton";
+import { useRouter } from "expo-router";
 
 export default function ProductItem({ item }) {
-  const imageUrl = "https://random.imagecdn.app/500/150";
-
+  const navigate = useRouter();
   return (
-    <Pressable style={styles.root}>
+    <Pressable
+      style={styles.root}
+      onPress={() => navigate.push(`/products/${item.id}`)}
+    >
       <View style={styles.productContainer}>
-        <Image style={styles.image} source={{ uri: imageUrl }} blurRadius={1} />
+        <Image
+          style={styles.image}
+          source={require("./../assets/products/mediamodifier-7cERndkOyDw-unsplash.jpg")}
+          blurRadius={1}
+        />
       </View>
 
       <View style={styles.productDetails}>
         <View style={styles.titleContainer}>
           <Text style={styles.titleText} numberOfLines={2} ellipsizeMode="tail">
-            {item.item.title}
+            {item.title}
           </Text>
         </View>
 
         <View style={styles.priceContainer}>
-          <Text style={styles.price}>100.000 FCFA</Text>
+          <Text style={styles.price}>{item.price} FCFA</Text>
         </View>
       </View>
 
@@ -36,7 +43,7 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 15,
     borderRadius: 5,
-    height: 250,
+    height: 280,
     backgroundColor: COLORS.tagBackground,
     position: "relative",
   },
@@ -51,10 +58,10 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   image: {
-    resizeMode: "cover",
-    height: 100,
     width: "100%",
-    borderRadius: 5,
+    height: 140,
+    aspectRatio: 1,
+    alignSelf: "center",
   },
   titleText: {
     color: COLORS.grayText,

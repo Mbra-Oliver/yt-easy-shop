@@ -1,5 +1,8 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView, TextInput } from "react-native";
+import ProductsList from "../../../components/ProductsList";
+import { Stack } from "expo-router";
+import { COLORS } from "../../../constantes/colors";
 
 const Index = () => {
   return <View></View>;
