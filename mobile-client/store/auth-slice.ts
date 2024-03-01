@@ -1,10 +1,15 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+interface AuthState {
+  isLoggedIn: boolean;
+}
+const initialState: AuthState = {
+  isLoggedIn: false,
+};
+
 const authSlice = createSlice({
   name: "auth",
-  initialState: {
-    isLoggedIn: true,
-  },
+  initialState,
   reducers: {
     toggleAuth(state) {
       state.isLoggedIn = !state.isLoggedIn;
