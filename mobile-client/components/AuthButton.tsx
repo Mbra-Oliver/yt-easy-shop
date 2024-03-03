@@ -2,7 +2,7 @@ import { View, Text, TouchableOpacity } from "react-native";
 import React from "react";
 import { COLORS } from "../constantes/colors";
 
-const AuthButton = () => {
+const AuthButton = ({ onClick, children }) => {
   return (
     <TouchableOpacity
       style={{
@@ -13,8 +13,11 @@ const AuthButton = () => {
         borderRadius: 25,
       }}
     >
-      <Text style={{ textAlign: "center", color: COLORS.white }}>
-        Se connecter
+      <Text
+        style={{ textAlign: "center", color: COLORS.white }}
+        onPress={onClick}
+      >
+        {children}
       </Text>
     </TouchableOpacity>
   );

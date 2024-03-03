@@ -8,15 +8,26 @@ import {
   Pressable,
 } from "react-native";
 import React, { useEffect, useState } from "react";
-import { Stack } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 import TextInputIcon from "../../../components/TextInputIcon";
 import AuthButton from "../../../components/AuthButton";
 import { COLORS } from "../../../constantes/colors";
 
 export default function index() {
+  const navigate = useRouter();
+  const goCreate = () => {
+    navigate.replace("/register");
+  };
+
+  const handleLogin = () => {};
+
   return (
     <SafeAreaView style={styles.root}>
-      <StatusBar animated={true} backgroundColor={COLORS.primary} />
+      <StatusBar
+        animated={true}
+        backgroundColor={COLORS.primary}
+        barStyle="light-content"
+      />
       <Stack.Screen
         options={{
           headerShown: false,
@@ -50,21 +61,22 @@ export default function index() {
           </Text>
         </View>
 
-        <TextInputIcon />
-        <TextInputIcon />
+        <TextInputIcon icon={"email"} setSecureEntry={false} />
+        <TextInputIcon icon={"key"} setSecureEntry />
 
-        <Pressable
+        <View
           style={{
             justifyContent: "flex-end",
             alignItems: "flex-end",
             paddingBottom: 10,
           }}
         >
-          <Text>J'ai oublié mon mot de passe.</Text>
-        </Pressable>
-
+          <Pressable>
+            <Text>J'ai oublié mon mot de passe.</Text>
+          </Pressable>
+        </View>
         <View style={{ justifyContent: "center", alignItems: "center" }}>
-          <AuthButton />
+          <AuthButton onClick={handleLogin}>Me connecter</AuthButton>
         </View>
 
         <View
@@ -77,7 +89,7 @@ export default function index() {
           }}
         >
           <Text>Je suis nouveau.</Text>
-          <Pressable>
+          <Pressable onPress={goCreate}>
             <Text style={{ color: COLORS.primary }}>
               Je veux créer un compte
             </Text>
